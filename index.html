@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SPACE INVADERS!</title>
+<style>
+@font-face {font-family: 'invade';src: url('font/invadeafont-webfont.eot');src: url('font/invadeafont-webfont.eot?#iefix') format('embedded-opentype'),url('font/invadeafont-webfont.woff') format('woff'),url('font/invadeafont-webfont.ttf') format('truetype'),url('font/invadeafont-webfont.svg#apple_regular') format('svg');font-weight: normal;font-style: normal;}
+::selection {background:#000;}
+html {-wekbit-user-select:none;-moz-user-select:none;}
+body {background-color:#000;}
+#wrapper {margin:0 auto;padding-top:50px;width:217px;}
+#lazer {position:absolute;left:-10px;}
+.lazer {position:absolute;top:250px;display:block;}
+#spaceinvade {background:url(spaceinvader.php) center no-repeat;width:217px;height:248px;cursor:none;position:relative;z-index:100;}
+#spaceinvade:active {cursor:none;}
+#tess {	font-family:'invade';font-size:8px;color:#fff;text-transform:uppercase;text-align:center;padding-top:15px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="spaceinvade">
+</div>
+<img src="ship.php" id="mouse" style="display:none;">
+<img src="lazer.php" class="lazer" id="lazer">
+<script type="text/javascript">
+$('#spaceinvade').mousemove(function(e) {
+	var x = e.pageX;
+   	$('#mouse').css('position','absolute').css('left',x).css('top','266px').css('display','block'); 
+});
+$('#spaceinvade').mousedown(function(e) {
+	var x = e.pageX;
+	x += 6;
+	$('#lazer').clone().appendTo('body').css('left',x).animate({top:'60px'},1000,function() {
+			$(this).remove();
+	});
+});
+</script>
+<div id="tess">
+Tess Guefen<br>
+Fall 2012<br>
+Advanced Web-based Programming<br>
+AICASD
+</div>
+</div>
+</body>
+</html>
